@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+    #outer {
+        /*定义视距*/
+        -webkit-perspective: 500px;
+        -WebKit-perspective-origin: 50% 50%;
+        -moz-perspective: 500px;
+        -moz-perspective-origin: 50% 50%;
+    }
+    
+    #inner {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -webkit-backface-visibility: visible;
+        margin: 200px auto;
+        -webkit-animation: scroll 8s linear 0s infinite;
+    }
+    
+    .page {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 1px solid gray;
+        background-color: rgba(0, 0, 255, 0.3);
+        color: blue;
+        line-height: 200px;
+        text-align: center;
+        font-size: 30px;
+        font-family: "微软雅黑";
+        border-radius: 10px;
+    }
+    
+    #page1 {
+        -webkit-transform: translateZ(100px);
+    }
+    
+    #page2 {
+        webkit-transform-origin: center;
+        -webkit-transform: rotateY(-90deg) translateZ(100px);
+    }
+    
+    #page3 {
+        webkit-transform-origin: center;
+        -webkit-transform: translateZ(-100px) rotateY(180deg);
+    }
+    
+    #page4 {
+        transform-origin: center;
+        transform: rotateY(90deg) translateZ(100px);
+    }
+    
+    #page5 {
+        transform-origin: top;
+        transform: rotateX(90deg) translateY(-100px);
+    }
+    
+    #page6 {
+        transform-origin: top;
+        transform: rotateX(-90deg) translate3d(0, -100px, 200px);
+    }
+    
+    @-webkit-keyframes scroll {
+        0% {
+            -webkit-transform: rotateY(0deg) rotateX(0deg);
+        }
+        50% {
+            -webkit-transform: rotateY(360deg) rotateX(0deg);
+        }
+        100% {
+            -webkit-transform: rotateY(360deg) rotateX(360deg);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div class="page" id="page1">1</div>
+            <div class="page" id="page2">2</div>
+            <div class="page" id="page3">3</div>
+            <div class="page" id="page4">4</div>
+            <div class="page" id="page5">5</div>
+            <div class="page" id="page6">6</div>
+        </div>
+</body>
+
+</html>
